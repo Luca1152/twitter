@@ -6,7 +6,7 @@ const {Schema} = require('./graphql');
 const app = express();
 
 app.use(express.json());
-app.use('/graphql', /* TODO JWTMiddleware,*/ graphqlHTTP({
+app.use('/graphql', /* TODO: JWTMiddleware, */ graphqlHTTP({
   schema: Schema,
   graphiql: true,
 }));
