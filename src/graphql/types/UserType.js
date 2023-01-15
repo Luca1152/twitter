@@ -13,6 +13,12 @@ const UserType = new GraphQLObjectType({
         return null; // TODO
       }
     },
+    following: {
+      type: new GraphQLList(UserType),
+      resolve(parent, args) {
+        return null; // TODO
+      }
+    },
     followers: {
       type: new GraphQLList(UserType),
       resolve(parent, args) {
