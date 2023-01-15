@@ -11,25 +11,25 @@ const TweetType = new GraphQLObjectType({
     parent: {
       type: TweetType,
       resolve(parent, args) {
-        return null; // TODO - eu
+        return null; // TODO
       }
     },
     author: {
       type: UserType,
       resolve(parent, args) {
-        return null; // TODO - eu
+        return null; // TODO
       }
     },
     replies: {
       type: new GraphQLList(TweetType),
       resolve(parent, args) {
-        return null; // TODO - eu
+        return null; // TODO
       }
     },
     retweets: {
       type: new GraphQLList(TweetType),
       resolve(parent, args) {
-        return null; // TODO - eu
+        return null; // TODO
       }
     }
   })

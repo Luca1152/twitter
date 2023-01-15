@@ -10,7 +10,7 @@ const UserType = new GraphQLObjectType({
     tweets: {
       type: new GraphQLList(TweetType),
       resolve(parent, args) {
-        return null; // TODO - eu
+        return null; // TODO
       }
     },
     followers: {
