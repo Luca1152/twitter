@@ -1,0 +1,10 @@
+# MacOS
+.DS_Store
+
+# WebStorm
+.idea/
+
+# Node
+node_modules/
+
+storage/db.sqlite
