@@ -1,15 +1,13 @@
 const express = require('express');
 const {graphqlHTTP} = require('express-graphql');
-// const JWTMiddleware = require('./middlewares/JWTMiddleware');
-// TODO ^
-const schema = require('./graphql');
+// TODO: const JWTMiddleware = require('./middlewares/JWTMiddleware');
+const {Schema} = require('./graphql');
 
 const app = express();
 
 app.use(express.json());
-app.use('/graphql', /*JWTMiddleware,*/ graphqlHTTP({
-  // TODO ^
-  schema,
+app.use('/graphql', /* TODO JWTMiddleware,*/ graphqlHTTP({
+  schema: Schema,
   graphiql: true,
 }));
 
