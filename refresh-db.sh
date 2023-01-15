@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf storage/db.sqlite
+rm -rf db/db.sqlite
 
 npx sequelize-cli db:migrate
 npx sequelize-cli db:seed:all

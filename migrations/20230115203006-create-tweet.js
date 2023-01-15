@@ -1,4 +1,3 @@
-// TODO
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
@@ -17,13 +16,7 @@ module.exports = {
       },
       likes: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        defaultValue: 0,
-      },
-      isRetweet: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
+        allowNull: true,
       },
       parentTweetId: {
         type: Sequelize.INTEGER,

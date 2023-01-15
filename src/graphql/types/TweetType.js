@@ -7,7 +7,12 @@ const TweetType = new GraphQLObjectType({
     id: {type: GraphQLInt},
     text: {type: GraphQLString},
     likes: {type: GraphQLInt},
-    isRetweet: {type: GraphQLBoolean},
+    isRetweet: {
+      type: GraphQLBoolean,
+      resolve(parent, args) {
+        return null; // TODO - if it has no text
+      }
+    },
     parent: {
       type: TweetType,
       resolve(parent, args) {
