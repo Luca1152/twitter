@@ -7,7 +7,18 @@ const UserType = new GraphQLObjectType({
     id: {type: GraphQLID},
     username: {type: GraphQLString},
     name: {type: GraphQLString},
-    tweets: {type: new GraphQLList(TweetType)},
+    tweets: {
+      type: new GraphQLList(TweetType),
+      resolve(parent, args) {
+        return null; // TODO - eu
+      }
+    },
+    followers: {
+      type: new GraphQLList(UserType),
+      resolve(parent, args) {
+        return null; // TODO
+      }
+    },
   })
 });
 
