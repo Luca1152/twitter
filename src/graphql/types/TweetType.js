@@ -1,10 +1,10 @@
-const {GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLList, GraphQLBoolean} = require("graphql/type");
+const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLBoolean} = require("graphql/type");
 const UserType = require("./UserType");
 
 const TweetType = new GraphQLObjectType({
   name: 'Tweet',
   fields: () => ({
-    id: {type: GraphQLID},
+    id: {type: GraphQLInt},
     text: {type: GraphQLString},
     likes: {type: GraphQLInt},
     isRetweet: {type: GraphQLBoolean},
