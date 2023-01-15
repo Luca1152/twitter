@@ -1,1 +1,1 @@
-// TODO
+// TODO - din proiectul de la curs
