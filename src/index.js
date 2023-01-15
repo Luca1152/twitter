@@ -6,8 +6,9 @@ const schema = require('./graphql');
 const app = express();
 
 app.use(express.json());
-app.post('/graphql', /*JWTMiddleware,*/ graphqlHTTP({
-  schema
+app.use('/graphql', /*JWTMiddleware,*/ graphqlHTTP({
+  schema,
+  graphiql: true,
 }));
 
 app.listen(8080, () => {
