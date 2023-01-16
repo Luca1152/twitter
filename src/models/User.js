@@ -5,8 +5,8 @@ const {Model} = require('sequelize');
 function createUser(sequelize, DataTypes) {
   class User extends Model {
     static associate(models) {
-      models.User.belongsToMany(models.User, {through: 'UserFollowers', uniqueKey: 'userId'});
-      models.User.belongsToMany(models.User, {through: 'UserFollowers', uniqueKey: 'followerId'});
+      models.User.belongsToMany(models.User, {as: 'userId', through: 'UserFollowers'});
+      models.User.belongsToMany(models.User, {as: 'followerId', through: 'UserFollowers'});
     }
   }
 

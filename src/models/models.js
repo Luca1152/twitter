@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 const process = require('process');
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../../config/config.json')[env];
 const createUser = require('./User');
 const createTweetMetadata = require('./TweetMetadata');
 const createTweet = require('./Tweet');
