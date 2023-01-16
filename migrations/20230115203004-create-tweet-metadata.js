@@ -10,7 +10,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
       },
-      createdAt: {
+      tweetDate: {
         type: Sequelize.DATE,
         allowNull: false,
       },
@@ -21,6 +21,16 @@ module.exports = {
       sentFrom: {
         type: Sequelize.STRING,
         allowNull: true,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },

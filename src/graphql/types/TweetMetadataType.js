@@ -9,7 +9,7 @@ const TweetMetadataType = new GraphQLObjectType({
         return null; // TODO
       }
     },
-    createdAt: {type: GraphQLString},
+    tweetDate: {type: GraphQLString},
     location: {type: GraphQLString},
     sentFrom: {type: GraphQLString},
   })

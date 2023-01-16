@@ -2,27 +2,27 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('TweetMetadata', [
       {
-        createdAt: new Date(),
+        tweetDate: new Date(),
         location: "Romania",
         sentFrom: "iOS",
       },
       {
-        createdAt: new Date(),
+        tweetDate: new Date(),
         location: "United States",
         sentFrom: "Android",
       },
       {
-        createdAt: new Date(),
+        tweetDate: new Date(),
         location: "Romania",
         sentFrom: "Android",
       },
     ]);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *

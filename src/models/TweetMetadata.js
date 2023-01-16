@@ -16,7 +16,7 @@ function createTweetMetadata(sequelize, DataTypes) {
         allowNull: false,
         autoIncrement: true,
       },
-      createdAt: {
+      tweetDate: {
         type: DataTypes.DATE,
         allowNull: false,
       },
