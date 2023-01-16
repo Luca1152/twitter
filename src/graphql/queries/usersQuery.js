@@ -4,7 +4,7 @@ const models = require("../../models");
 
 const usersQuery = {
   type: new GraphQLList(UserType),
-  resolve: () => {
+  resolve(parent, args) {
     return models.User.findAll();
   }
 }
