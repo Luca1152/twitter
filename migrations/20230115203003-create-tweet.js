@@ -34,14 +34,6 @@ module.exports = {
         },
         allowNull: false,
       },
-      metadataId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'TweetMetadata',
-          key: 'id',
-        },
-        allowNull: true,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

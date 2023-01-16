@@ -4,11 +4,14 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('TweetMetadata', {
-      id: {
+      tweetId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true,
+        references: {
+          model: 'Tweets',
+          key: 'id',
+        },
       },
       tweetDate: {
         type: Sequelize.DATE,

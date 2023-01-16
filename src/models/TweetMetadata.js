@@ -10,11 +10,14 @@ function createTweetMetadata(sequelize, DataTypes) {
   }
 
   TweetMetadata.init({
-      id: {
+      tweetId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true,
+        references: {
+          model: 'Tweets',
+          key: 'id',
+        },
       },
       tweetDate: {
         type: DataTypes.DATE,

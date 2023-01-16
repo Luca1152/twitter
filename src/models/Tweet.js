@@ -48,14 +48,6 @@ function createTweet(sequelize, DataTypes) {
           key: 'id',
         },
         allowNull: false,
-      },
-      metadataId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'TweetMetadata',
-          key: 'id',
-        },
-        allowNull: true,
       }
     },
     {sequelize, modelName: 'Tweet'});
