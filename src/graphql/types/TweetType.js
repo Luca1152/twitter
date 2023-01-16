@@ -37,6 +37,12 @@ const TweetType = new GraphQLObjectType({
       resolve(p, args) {
         return models.Tweet.findAll({where: {parentTweetId: p.id, text: null}});
       }
+    },
+    metadata: {
+      type: require("./TweetMetadataType"),
+      resolve(parent, args) {
+        return models.TweetMetadata.findOne({where: {tweetId: parent.id}});
+      }
     }
   })
 });

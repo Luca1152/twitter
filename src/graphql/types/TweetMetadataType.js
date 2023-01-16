@@ -1,4 +1,5 @@
 const {GraphQLString, GraphQLObjectType, GraphQLInt} = require("graphql/type");
+const models = require("../../models");
 
 const TweetMetadataType = new GraphQLObjectType({
   name: 'TweetMetadata',
@@ -6,8 +7,7 @@ const TweetMetadataType = new GraphQLObjectType({
     tweet: {
       type: require("./TweetType"),
       resolve(parent, args) {
-        // TO DO with tweetId / id
-        return models.Tweet.findOne({where: {id: parent.id}})
+        return models.Tweet.findOne({where: {id: parent.tweetId}});
       }
     },
     tweetDate: {type: GraphQLString},

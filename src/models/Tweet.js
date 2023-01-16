@@ -12,8 +12,13 @@ function createTweet(sequelize, DataTypes) {
       });
 
       // Tweet has metadata
-      models.Tweet.hasOne(models.TweetMetadata, {
-        foreignKey: 'metadataId',
+      // models.Tweet.hasOne(models.TweetMetadata, {
+      //   foreignKey: 'tweetId',
+      // });
+
+      models.Tweet.hasOne(models.TweetMetadata, { 
+        foreignKey: 'tweetId', 
+        sourceKey: 'id' 
       });
     }
   }
