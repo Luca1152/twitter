@@ -17,7 +17,7 @@ const TweetType = new GraphQLObjectType({
     parent: {
       type: TweetType,
       resolve(parent, args) {
-        return models.Tweet.findOne({ where: {id: parent.parentTweetId}});
+        return models.Tweet.findOne({where: {id: parent.parentTweetId}});
       }
     },
     author: {
