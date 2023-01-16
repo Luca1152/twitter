@@ -7,9 +7,9 @@ function createTweet(sequelize, DataTypes) {
     static associate(models) {
       // Tweet has parent tweet
       models.Tweet.hasOne(models.Tweet, {
+        as: 'parentTweet',
         foreignKey: 'parentTweetId',
       });
-      models.Tweet.belongsTo(models.Tweet);
 
       // Tweet has metadata
       models.Tweet.hasOne(models.TweetMetadata, {
