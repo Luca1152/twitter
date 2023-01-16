@@ -1,10 +1,16 @@
 {
   "development": {
     "dialect": "sqlite",
-    "storage": "db/db.sqlite"
+    "storage": "db/db.sqlite",
+    "database": "twitter",
+    "username": "admin",
+    "password": "admin"
   },
   "production": {
     "dialect": "sqlite",
-    "storage": "db/db.sqlite"
+    "storage": "db/db.sqlite",
+    "database": "twitter",
+    "username": "admin",
+    "password": "admin"
   }
 }
