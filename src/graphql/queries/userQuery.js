@@ -14,6 +14,8 @@ module.exports = {
       return null;
     }
 
-    return models.User.findByPk(id);
+    const userData = await models.User.findByPk(id);
+
+    return userData;
   }
 }
