@@ -9,7 +9,7 @@ const createTweetMetadata = require('./TweetMetadata');
 const createTweet = require('./Tweet');
 const createAssociations = require('./associations');
 
-const db = {};
+const models = {};
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 // Create the models
@@ -18,17 +18,17 @@ const modelCreators = [
 ]
 modelCreators.forEach(modelCreator => {
   const model = modelCreator(sequelize, Sequelize.DataTypes);
-  db[model.name] = model;
+  models[model.name] = model;
 });
 
 // Create associations
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
+Object.keys(models).forEach(modelName => {
+  if (models[modelName].associate) {
+    models[modelName].associate(models);
   }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+models.sequelize = sequelize;
+models.Sequelize = Sequelize;
 
-module.exports = db;
+module.exports = models;
