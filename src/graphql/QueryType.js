@@ -3,6 +3,7 @@ const usersQuery = require("./queries/usersQuery");
 const userQuery = require("./queries/userQuery");
 const tweetQuery = require("./queries/tweetQuery");
 const tweetsQuery = require("./queries/tweetsQuery");
+const popularTweetsQuery = require("./queries/popularTweetsQuery");
 
 const QueryType = new GraphQLObjectType({
   name: 'Query',
@@ -11,6 +12,7 @@ const QueryType = new GraphQLObjectType({
     user: userQuery,
     tweets: tweetsQuery,
     tweet:tweetQuery,
+    popularTweets: popularTweetsQuery,
   }
 });
 
