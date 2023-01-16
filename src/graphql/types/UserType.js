@@ -1,5 +1,4 @@
 const {GraphQLObjectType, GraphQLString, GraphQLList} = require("graphql");
-const TweetType = require("./TweetType");
 const {GraphQLInt} = require("graphql/type");
 
 const UserType = new GraphQLObjectType({
@@ -9,7 +8,7 @@ const UserType = new GraphQLObjectType({
     username: {type: GraphQLString},
     name: {type: GraphQLString},
     tweets: {
-      type: new GraphQLList(TweetType),
+      type: new GraphQLList(require("./TweetType")),
       resolve(parent, args) {
         return null; // TODO
       }

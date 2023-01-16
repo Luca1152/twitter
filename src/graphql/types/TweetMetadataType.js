@@ -1,11 +1,10 @@
 const {GraphQLString, GraphQLObjectType, GraphQLInt} = require("graphql/type");
-const TweetType = require("./TweetType");
 
 const TweetMetadataType = new GraphQLObjectType({
   name: 'TweetMetadata',
   fields: () => ({
     tweet: {
-      type: TweetType,
+      type: require("./TweetType"),
       resolve(parent, args) {
         return null; // TODO
       }

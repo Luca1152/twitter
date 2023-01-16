@@ -1,5 +1,4 @@
 const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLBoolean} = require("graphql/type");
-const UserType = require("./UserType");
 
 const TweetType = new GraphQLObjectType({
   name: 'Tweet',
@@ -20,7 +19,7 @@ const TweetType = new GraphQLObjectType({
       }
     },
     author: {
-      type: UserType,
+      type: require("./UserType"),
       resolve(parent, args) {
         return null; // TODO
       }
