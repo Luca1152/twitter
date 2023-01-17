@@ -1,9 +1,25 @@
 // TODO
+
+const bcrypt = require('bcryptjs');
+const SALT_ROUNDS = 8;
+
+const {
+    GraphQLNonNull,
+    GraphQLString,
+} = require('graphql');
+
+const userSessionType = require('../../types/UserSessionType');
 const loginResolver = require('../../resolvers/user/loginResolver');
-const {GraphQLBoolean} = require("graphql/type");
 
 module.exports = {
-  // TODO
-  type: GraphQLBoolean, // TODO
-  resolve: loginResolver,
+    type: userSessionType,
+    args: {
+        username: {
+            type: new GraphQLNonNull(GraphQLString),
+        },
+        password: {
+            type: new GraphQLNonNull(GraphQLString),
+        },
+    },
+    resolve: loginResolver,
 }
