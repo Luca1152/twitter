@@ -100,7 +100,7 @@
 
 ## Queries
 
-<details open>
+<details>
   <summary> <strong>Get User</strong> </summary>
 
   ```
@@ -205,7 +205,7 @@
 
 </details>
 
-<details open>
+<details>
   <summary> <strong>Get All Tweets</strong> </summary>
 
 ```
@@ -261,7 +261,7 @@
 
 </details>
 
-<details open>
+<details>
   <summary> <strong> Get the most liked [n] tweets that have been posted from a specific location [loc] </strong> </summary>
 
   ```
@@ -298,7 +298,7 @@
 
 ## Mutations
 
-<details open>
+<details>
   <summary> <strong>Create User</strong> </summary>
 
   ```
@@ -365,7 +365,7 @@ Returns:
 
 </details>
 
-<details open>
+<details>
 <summary> <strong>Delete User</strong> </summary>
 
 ```
@@ -426,4 +426,3 @@ Returns:
 
 </details>
 
-```
