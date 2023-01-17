@@ -22,6 +22,12 @@ module.exports = {
         location: "Romania",
         sentFrom: "Android",
       },
+      {
+        tweetId: 4,
+        tweetDate: new Date(),
+        location: "Romania",
+        sentFrom: "iOS",
+      },
     ]);
   },
 

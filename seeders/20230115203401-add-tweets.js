@@ -21,6 +21,12 @@ module.exports = {
         parentTweetId: 2,
         author: 1,
       },
+      {
+        text: 'Alt tweet din Romania',
+        likes: 250,
+        parentTweetId: null,
+        author: 3,
+      }
     ]);
   },
 
