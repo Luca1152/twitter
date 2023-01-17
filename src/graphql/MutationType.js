@@ -1,6 +1,6 @@
 const {GraphQLObjectType} = require('graphql');
 const createReplyMutation = require('./mutations/tweet/createReplyMutation');
-// createRetweet
+const createRetweetMutation = require('./mutations/tweet/createRetweetMutation');
 const createTweetMutation = require('./mutations/tweet/createTweetMutation');
 // likeTweet
 const createUserMutation = require('./mutations/user/createUserMutation');
@@ -12,7 +12,7 @@ const MutationType = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     createReply: createReplyMutation,
-    // createRetweet
+    createRetweet: createRetweetMutation,
     createTweet: createTweetMutation,
     // likeTweet
     createUser: createUserMutation,
