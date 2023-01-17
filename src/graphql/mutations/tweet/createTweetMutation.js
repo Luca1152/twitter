@@ -8,12 +8,6 @@ module.exports = {
     text: {
       type: new GraphQLNonNull(GraphQLString),
     },
-    likes: {
-      type: GraphQLInt,
-    },
-    parentTweetId: {
-      type: GraphQLInt,
-    },
     author: {
       type: new GraphQLNonNull(GraphQLInt),
     }
