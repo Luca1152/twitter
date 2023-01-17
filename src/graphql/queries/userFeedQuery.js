@@ -1,34 +1,49 @@
-// TODO - get the [n] most recent liked created by users the user with this [id] is following
-
-const {GraphQLNonNull, GraphQLInt} = require("graphql");
+const {GraphQLNonNull, GraphQLInt, GraphQLList} = require("graphql");
 const {Op} = require("sequelize");
 const models = require("../../models");
-const User = require("../types/UserType");
+const TweetType = require("../types/TweetType");
 
+// Get the [n] most recent tweets created by users the user with this [id] is following
 const userFeedQuery = {
-  type: new GraphQLNonNull(User),
+  type: new GraphQLList(TweetType),
   args: {
+    userId: {
+      type: new GraphQLNonNull(GraphQLInt),
+    },
     n: {
       type: new GraphQLNonNull(GraphQLInt),
     },
-    userId: {
-      type: new GraphQLNonNull(GraphQLInt),
-    }
   },
-  async resolve(_, {n, idUser}) {
+  async resolve(_, {n, userId}) {
     const followingIds = await models.UserFollowers.findAll({
       where: {
-        followerId: idUser,
+        followerId: userId,
       }
     });
-
-    return await models.User.findAll({
+    const tweetsByUsersFollowed = await models.Tweet.findAll({
       where: {
-        id: {
+        author: {
           [Op.in]: followingIds.map(item => item.userId)
         }
       }
     });
+    const tweetsMetadata = await models.TweetMetadata.findAll({
+      where: {
+        tweetId: {
+          [Op.in]: tweetsByUsersFollowed.map(item => item.id)
+        }
+      }
+    });
+    const sortedTweets = tweetsByUsersFollowed.sort(
+      (a, b) => {
+        const aMetadata = tweetsMetadata.find(item => item.tweetId === a.id);
+        const bMetadata = tweetsMetadata.find(item => item.tweetId === b.id);
+        return new Date(bMetadata.tweetDate).getTime() - new Date(aMetadata.tweetDate).getTime();
+      }
+    );
+    const nMostRecentTweets = sortedTweets.slice(0, n);
+
+    return nMostRecentTweets;
   }
 }
 

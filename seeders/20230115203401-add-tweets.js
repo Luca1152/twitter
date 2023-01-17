@@ -26,7 +26,19 @@ module.exports = {
         likes: 250,
         parentTweetId: null,
         author: 3,
-      }
+      },
+      {
+        text: 'Al treilea tweet al lui @luca',
+        likes: 10,
+        parentTweetId: 2,
+        author: 1,
+      },
+      {
+        text: 'Al patrulea tweet al lui @luca',
+        likes: 20,
+        parentTweetId: null,
+        author: 1,
+      },
     ]);
   },
 

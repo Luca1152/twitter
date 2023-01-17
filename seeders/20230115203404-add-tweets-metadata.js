@@ -28,6 +28,18 @@ module.exports = {
         location: "Romania",
         sentFrom: "iOS",
       },
+      {
+        tweetId: 5,
+        tweetDate: new Date(),
+        location: "Romania",
+        sentFrom: "iOS",
+      },
+      {
+        tweetId: 6,
+        tweetDate: new Date(),
+        location: "Romania",
+        sentFrom: "iOS",
+      },
     ]);
   },
 

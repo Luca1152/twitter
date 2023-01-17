@@ -15,7 +15,11 @@ module.exports = {
       {
         userId: 2,
         followerId: 1,
-      }
+      },
+      {
+        userId: 2,
+        followerId: 3,
+      },
     ]);
   },
 
