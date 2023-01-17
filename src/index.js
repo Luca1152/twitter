@@ -8,7 +8,7 @@ const expressPlayground = require('graphql-playground-middleware-express')
 const app = express();
 
 app.use(express.json());
-app.get('/playground', expressPlayground({ endpoint: '/graphql' }))
+app.get('/playground', expressPlayground({endpoint: '/graphql'}))
 app.use('/graphql', JWTMiddleware, graphqlHTTP({
   schema: Schema,
 }));
