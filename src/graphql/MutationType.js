@@ -1,9 +1,10 @@
 const {GraphQLObjectType} = require('graphql');
 
+const createTweetMutation = require('./mutations/tweet/createTweetMutation');
 const createUserMutation = require('./mutations/user/createUserMutation');
 const deleteUserMutation = require('./mutations/user/deleteUserMutation');
-const createTweetMutation = require('./mutations/tweet/createTweetMutation');
 const followUserMutation = require('./mutations/user/followUserMutation');
+const loginMutation = require('./mutations/user/loginMutation');
 
 const MutationType = new GraphQLObjectType({
   name: 'Mutation',
@@ -13,6 +14,7 @@ const MutationType = new GraphQLObjectType({
     createUser: createUserMutation,
     deleteUser: deleteUserMutation,
     followUser: followUserMutation,
+    login: loginMutation,
   }
 });
 
