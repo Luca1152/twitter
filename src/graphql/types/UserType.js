@@ -27,15 +27,13 @@ const UserType = new GraphQLObjectType({
           }
         });
 
-        const filteredResults = await models.User.findAll({
+        return await models.User.findAll({
           where: {
             id: {
               [Op.in]: followingIds.map(item => item.userId)
             }
           }
         });
-
-        return filteredResults;
       }
     },
     followers: {
@@ -47,15 +45,13 @@ const UserType = new GraphQLObjectType({
           }
         });
 
-        const filteredResults = await models.User.findAll({
+        return await models.User.findAll({
           where: {
             id: {
               [Op.in]: followersIds.map(item => item.followerId)
             }
           }
         });
-
-        return filteredResults;
       }
     },
   })

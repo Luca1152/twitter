@@ -10,12 +10,6 @@ function createTweet(sequelize, DataTypes) {
         as: 'parentTweet',
         foreignKey: 'parentTweetId',
       });
-
-      // Tweet has metadata
-      // models.Tweet.hasOne(models.TweetMetadata, {
-      //   foreignKey: 'tweetId',
-      // });
-
       models.Tweet.hasOne(models.TweetMetadata, {
         foreignKey: 'tweetId',
         sourceKey: 'id'

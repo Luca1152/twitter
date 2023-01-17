@@ -14,8 +14,6 @@ module.exports = {
       return null;
     }
 
-    const tweetData = await models.Tweet.findByPk(id);
-
-    return tweetData;
+    return await models.Tweet.findByPk(id);
   }
 }
