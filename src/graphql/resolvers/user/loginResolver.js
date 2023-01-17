@@ -1,8 +1,7 @@
 const models = require("../../../models");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const SALT_ROUNDS = 8;
-const { JWT_SECRET } = require('../../../../config/jwt');
+const {JWT_SECRET} = require('../../../../config/jwt');
 
 module.exports = async (source, {username, password}) => {
   const user = await models.User.findOne({
@@ -11,7 +10,7 @@ module.exports = async (source, {username, password}) => {
     }
   });
 
-  if(!user) {
+  if (!user) {
     return {
       token: null,
     }
@@ -19,8 +18,8 @@ module.exports = async (source, {username, password}) => {
 
   const passwordMatches = await bcrypt.compare(password, user.password);
 
-  if(passwordMatches) {
-    const token = jwt.sign({ userID: user.id, role: user.role }, JWT_SECRET);
+  if (passwordMatches) {
+    const token = jwt.sign({userID: user.id, role: user.role}, JWT_SECRET);
 
     return {
       token,

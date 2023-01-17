@@ -14,7 +14,11 @@ const userFeedQuery = {
       type: new GraphQLNonNull(GraphQLInt),
     },
   },
-  async resolve(_, {n, userId}) {
+  async resolve(_, {n, userId}, ctx) {
+    if (!ctx.tokenPayload || !["ADMIN", "USER"].includes(ctx.tokenPayload.role)) {
+      throw new Error("Not allowed");
+    }
+
     const followingIds = await models.UserFollowers.findAll({
       where: {
         followerId: userId,

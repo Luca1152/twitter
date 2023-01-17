@@ -1,8 +1,3 @@
-// TODO
-
-const bcrypt = require('bcryptjs');
-const SALT_ROUNDS = 8;
-
 const {
     GraphQLNonNull,
     GraphQLString,

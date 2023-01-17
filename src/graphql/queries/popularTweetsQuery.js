@@ -25,9 +25,7 @@ const popularTweetsQuery = {
         id: {[Op.in]: tweetMetadatas.map(item => item.tweetId)}
       }
     });
-
   }
-
 }
 
 module.exports = popularTweetsQuery;
