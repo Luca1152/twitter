@@ -1,17 +1,15 @@
-// TODO
+// TOCHECK
 
-const models = require("../../models");
-module.exports = async (source, { firstName, lastName }, { tokenPayload }) => {
-  if(!tokenPayload) {
-    return null;
-  }
+const models = require("../../../models");
+
+module.exports = async (source, { username, name }, { tokenPayload }) => {
+  // if(!tokenPayload) {
+  //   return null;
+  // }
 
   const user = await models.User.create({
     username,
-    name,
-    tweets,
-    following,
-    followers
+    name
   });
 
   return user;
