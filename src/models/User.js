@@ -26,6 +26,15 @@ function createUser(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'USER'
+      },
     },
     {sequelize, modelName: 'User'});
 

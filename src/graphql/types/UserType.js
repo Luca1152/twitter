@@ -11,6 +11,8 @@ const UserType = new GraphQLObjectType({
     id: {type: GraphQLInt},
     username: {type: GraphQLString},
     name: {type: GraphQLString},
+    password : {type: GraphQLString},
+    role : {type: GraphQLString},
     tweets: {
       type: new GraphQLList(tweetType),
       resolve(parent, args) {

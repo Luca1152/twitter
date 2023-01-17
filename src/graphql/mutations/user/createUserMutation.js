@@ -12,6 +12,12 @@ module.exports = {
     name: {
       type: new GraphQLNonNull(GraphQLString),
     },
+    password: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    role: {
+      type: new GraphQLNonNull(GraphQLString),
+    }
   },
   resolve: createUserResolver,
 }
