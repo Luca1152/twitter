@@ -41,7 +41,6 @@ const UserType = new GraphQLObjectType({
     followers: {
         type: new GraphQLList(UserType),
         async resolve(parent, args) {
-
           const followersIds = await models.UserFollowers.findAll({
             where: {
               userId : parent.id

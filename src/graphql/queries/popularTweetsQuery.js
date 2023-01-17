@@ -1,5 +1,3 @@
-// TODO - get the [n] most popular tweets from a location
-
 const {GraphQLList, GraphQLNonNull, GraphQLString, GraphQLInt} = require("graphql");
 const TweetMetadata = require("../types/TweetMetadataType");
 const { Op } = require("sequelize");
