@@ -1,47 +1,35 @@
 // TODO
 // Limit the number of characters to 280
 
+//TOCHECK
+
 const {
   GraphQLNonNull,
-  GraphQLString
+  GraphQLString,
+  GraphQLInt,
 } = require("graphql");
 
-const userType = require("../types/userType");
-const createUserResolver = require('../resolvers/createUserResolver');
+const Tweet = require("../../types/TweetType");
+const TweetModule = require('../../../models/Tweet')
+const User = require("../../types/UserType");
+
+const createTweetResolver = require('../../resolvers/tweet/createTweetResolver');
 
 module.exports = {
-  type: userType,
+  type: TweetModule,
   args: {
-    username: {
+    text: {
       type: new GraphQLNonNull(GraphQLString),
     },
-    name: {
-      type: new GraphQLNonNull(GraphQLString),
+    likes: {
+      type: new GraphQLNonNull(GraphQLInt),
     },
-    tweets: {
-      type: new GraphQLNonNull(GraphQLString),
+    parentTweetId: {
+      type: GraphQLInt,
     },
-    id: {type: GraphQLInt},
-    username: {type: GraphQLString},
-    name: {type: GraphQLString},
-    tweets: {
-      type: new GraphQLList(tweetType),
-      resolve(parent, args) {
-        return null;
-      }
-    },
-    following: {
-      type: new GraphQLList(UserType),
-      resolve(parent, args) {
-        return null;
-      }
-    },
-    followers: {
-      type: new GraphQLList(UserType),
-      resolve(parent, args) {
-        return null;
-      }
-    },
+    author: {
+      type: new GraphQLNonNull(GraphQLInt),
+    }
   },
-  resolve: createUserResolver,
+  resolve: createTweetResolver,
 }
