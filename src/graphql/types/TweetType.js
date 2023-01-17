@@ -1,5 +1,5 @@
 const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLBoolean} = require("graphql/type");
-const { Op } = require("sequelize");
+const {Op} = require("sequelize");
 const models = require("../../models");
 
 const TweetType = new GraphQLObjectType({

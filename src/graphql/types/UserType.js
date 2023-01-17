@@ -1,5 +1,5 @@
 const {GraphQLObjectType, GraphQLString, GraphQLList} = require("graphql");
-const { Op } = require("sequelize");
+const {Op} = require("sequelize");
 const {GraphQLInt} = require("graphql/type");
 
 const tweetType = require("./TweetType");
@@ -14,48 +14,48 @@ const UserType = new GraphQLObjectType({
     tweets: {
       type: new GraphQLList(tweetType),
       resolve(parent, args) {
-        return models.Tweet.findAll({ where:{author: parent.id}});
+        return models.Tweet.findAll({where: {author: parent.id}});
       }
     },
     following: {
-        type: new GraphQLList(UserType),
-        async resolve(parent, args) {
+      type: new GraphQLList(UserType),
+      async resolve(parent, args) {
 
-          const followingIds = await models.UserFollowers.findAll({
-            where: {
-              followerId : parent.id
+        const followingIds = await models.UserFollowers.findAll({
+          where: {
+            followerId: parent.id
+          }
+        });
+
+        const filteredResults = await models.User.findAll({
+          where: {
+            id: {
+              [Op.in]: followingIds.map(item => item.userId)
             }
-          });
+          }
+        });
 
-          const filteredResults = await models.User.findAll({
-            where: {
-              id: {
-                [Op.in]: followingIds.map(item => item.userId)
-              }
-            }
-          });
-
-          return filteredResults;
+        return filteredResults;
       }
     },
     followers: {
-        type: new GraphQLList(UserType),
-        async resolve(parent, args) {
-          const followersIds = await models.UserFollowers.findAll({
-            where: {
-              userId : parent.id
-            }
-          });
+      type: new GraphQLList(UserType),
+      async resolve(parent, args) {
+        const followersIds = await models.UserFollowers.findAll({
+          where: {
+            userId: parent.id
+          }
+        });
 
-          const filteredResults = await models.User.findAll({
-            where: {
-              id: {
-                [Op.in]: followersIds.map(item => item.followerId)
-              }
+        const filteredResults = await models.User.findAll({
+          where: {
+            id: {
+              [Op.in]: followersIds.map(item => item.followerId)
             }
-          });
+          }
+        });
 
-          return filteredResults;
+        return filteredResults;
       }
     },
   })

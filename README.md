@@ -39,18 +39,18 @@
 
 - Tweets
 
-  - List of Tweets. For each we can access every field of Tweet.
+    - List of Tweets. For each we can access every field of Tweet.
 
 - Following
-  - List of Users. For each we can access every field of User.
+    - List of Users. For each we can access every field of User.
 - Followers
-  - List of Users. For each we can access every field of User.
+    - List of Users. For each we can access every field of User.
 
 </details>
 
 <details>
   <summary> <h3> <strong>Tweet</strong> </h3> </summary>
-  
+
 * Id
 
 - Text
@@ -61,37 +61,40 @@
 
 - Parent
 
-  - Tweet. Represent the Tweet that the current twitted has replied to / retweeted. All fields of Tweet accessible.
+    - Tweet. Represent the Tweet that the current twitted has replied to / retweeted. All fields of Tweet accessible.
 
 - Author
 
-  - User. Represent the User that posted / retweeted / replied the (/ to) current tweet. All fields of User accessible.
+    - User. Represent the User that posted / retweeted / replied the (/ to) current tweet. All fields of User
+      accessible.
 
 - Replies
 
-  - List of Tweets. Represent all the tweets that are considered replied for the current tweet. For each we can access every field of Tweet.
+    - List of Tweets. Represent all the tweets that are considered replied for the current tweet. For each we can access
+      every field of Tweet.
 
 - Retweets
-  - List of Tweets. Represent all the tweets that are considered retweets of the current tweet. For each we can access every field of Tweet.
+    - List of Tweets. Represent all the tweets that are considered retweets of the current tweet. For each we can access
+      every field of Tweet.
 - Metadata
 
-  - TwitterMetadata. All fields of TwitterMetadata accessible. Contains following fields :
+    - TwitterMetadata. All fields of TwitterMetadata accessible. Contains following fields :
 
-    - tweet
+        - tweet
 
-      - Tweet. Represents the unique tweet that it is linked to. All fields of Tweet accessible.
+            - Tweet. Represents the unique tweet that it is linked to. All fields of Tweet accessible.
 
-    - tweetDate
+        - tweetDate
 
-      - Date : when the tweet has been sent.
+            - Date : when the tweet has been sent.
 
-    - location
+        - location
 
-      - Location : where the tweet has been sent from.
+            - Location : where the tweet has been sent from.
 
-    - sentFrom
+        - sentFrom
 
-      - iOS / Android
+            - iOS / Android
 
 </details>
 
@@ -99,7 +102,7 @@
 
 <details open>
   <summary> <strong>Get User</strong> </summary>
-  
+
   ```
   query{
     user(id: 1){
@@ -125,7 +128,7 @@
     }
   }
   ```
-  
+
 </details>
 
 <details>
@@ -169,7 +172,7 @@
 
 <details>
   <summary> <strong>Get Tweet</strong> </summary>
-  
+
 ```
   query{
     tweet(id: 1){
@@ -199,11 +202,12 @@
     }
   }
 ```
+
 </details>
 
 <details open>
   <summary> <strong>Get All Tweets</strong> </summary>
-  
+
 ```
   query{
     tweets{
@@ -259,7 +263,7 @@
 
 <details open>
   <summary> <strong> Get the most liked [n] tweets that have been posted from a specific location [loc] </strong> </summary>
-  
+
   ```
     query{
     popularTweets(n: 2, loc : "Romania"){
@@ -274,7 +278,7 @@
     }
   }
   ```
-  
+
   ```
     query{
     popularTweets(n: 1, loc : "Romania"){
@@ -289,14 +293,14 @@
     }
   }
   ```
+
 </details>
 
 ## Mutations
 
 <details open>
   <summary> <strong>Create User</strong> </summary>
-  
-  
+
   ```
   mutation{
     createUser(username : "newUser", name : "newUserName"){
@@ -306,9 +310,9 @@
     }
   }
   ```
-  
-  Returns:
-  
+
+Returns:
+
   ```
     {
     "data": {
@@ -321,9 +325,9 @@
   }
   
   ```
-  
-   Check changes.
-   
+
+Check changes.
+
    ```
     query {
       users {
@@ -364,7 +368,6 @@ Returns:
 <details open>
 <summary> <strong>Delete User</strong> </summary>
 
-
 ```
 
 mutation {
@@ -398,7 +401,6 @@ Check changes.
 
 ```
 
-
 Returns:
 
 ```
@@ -421,6 +423,7 @@ Returns:
 }
 
 ```
+
 </details>
 
 ```

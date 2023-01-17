@@ -2,7 +2,7 @@
 
 const models = require("../../../models");
 
-module.exports = async (source, { text, likes, parentTweetId, author }, { tokenPayload }) => {
+module.exports = async (source, {text, likes, parentTweetId, author}, {tokenPayload}) => {
   // if(!tokenPayload) {
   //   return null;
   // }

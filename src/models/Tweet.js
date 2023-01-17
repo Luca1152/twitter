@@ -16,9 +16,9 @@ function createTweet(sequelize, DataTypes) {
       //   foreignKey: 'tweetId',
       // });
 
-      models.Tweet.hasOne(models.TweetMetadata, { 
-        foreignKey: 'tweetId', 
-        sourceKey: 'id' 
+      models.Tweet.hasOne(models.TweetMetadata, {
+        foreignKey: 'tweetId',
+        sourceKey: 'id'
       });
     }
   }

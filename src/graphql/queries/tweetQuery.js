@@ -9,8 +9,8 @@ module.exports = {
       type: new GraphQLNonNull(GraphQLInt),
     }
   },
-  resolve: async (_, { id }) => {
-    if(!id) {
+  resolve: async (_, {id}) => {
+    if (!id) {
       return null;
     }
 

@@ -14,7 +14,7 @@ const QueryType = new GraphQLObjectType({
     tweets: tweetsQuery,
     tweet: tweetQuery,
     popularTweets: popularTweetsQuery,
-    userFeed : userFeedQuery,
+    userFeed: userFeedQuery,
   }
 });
 
