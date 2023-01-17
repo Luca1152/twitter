@@ -1,5 +1,3 @@
-// TODO - check
-
 const models = require("../../../models");
 
 module.exports = async (source, {username, name}) => {

@@ -1,11 +1,4 @@
-//TOCHECK
-
-const {
-  GraphQLBoolean,
-  GraphQLNonNull,
-  GraphQLInt
-} = require("graphql");
-
+const {GraphQLBoolean, GraphQLNonNull, GraphQLInt} = require("graphql");
 const deleteUserResolver = require('../../resolvers/user/deleteUserResolver');
 
 module.exports = {

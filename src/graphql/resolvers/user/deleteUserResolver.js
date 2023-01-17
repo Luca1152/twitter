@@ -1,5 +1,3 @@
-// TODO - Check
-
 const models = require("../../../models");
 
 module.exports = (source, {id}) => {

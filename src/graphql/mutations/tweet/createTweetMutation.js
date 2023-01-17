@@ -1,28 +1,15 @@
-// TODO
-// Limit the number of characters to 280
-
-//TOCHECK
-
-const {
-  GraphQLNonNull,
-  GraphQLString,
-  GraphQLInt,
-} = require("graphql");
-
-const Tweet = require("../../types/TweetType");
-const TweetModule = require('../../../models/Tweet')
-const User = require("../../types/UserType");
-
+const {GraphQLNonNull, GraphQLString, GraphQLInt} = require("graphql");
 const createTweetResolver = require('../../resolvers/tweet/createTweetResolver');
+const TweetType = require("../../types/TweetType");
 
 module.exports = {
-  type: TweetModule,
+  type: TweetType,
   args: {
     text: {
       type: new GraphQLNonNull(GraphQLString),
     },
     likes: {
-      type: new GraphQLNonNull(GraphQLInt),
+      type: GraphQLInt,
     },
     parentTweetId: {
       type: GraphQLInt,

@@ -1,9 +1,4 @@
-//TOCHECK
-
-const {
-  GraphQLNonNull,
-  GraphQLString
-} = require("graphql");
+const { GraphQLNonNull, GraphQLString} = require("graphql");
 
 const User = require("../../types/UserType");
 const createUserResolver = require('../../resolvers/user/createUserResolver');
