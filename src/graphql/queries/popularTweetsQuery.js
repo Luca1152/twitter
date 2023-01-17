@@ -1,3 +1,5 @@
+// Get the most liked [n] tweets that have been posted from a specific location [loc].
+
 const {GraphQLList, GraphQLNonNull, GraphQLString, GraphQLInt} = require("graphql");
 const TweetMetadata = require("../types/TweetMetadataType");
 const { Op } = require("sequelize");
