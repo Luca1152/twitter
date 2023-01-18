@@ -39,62 +39,62 @@
 
 - Tweets
 
-    - List of Tweets. For each we can access every field of Tweet.
+  - List of Tweets. For each we can access every field of Tweet.
 
 - Following
-    - List of Users. For each we can access every field of User.
+  - List of Users. For each we can access every field of User.
 - Followers
-    - List of Users. For each we can access every field of User.
+  - List of Users. For each we can access every field of User.
 
 </details>
 
 <details>
   <summary> <h3> <strong>Tweet</strong> </h3> </summary>
 
-* Id
+- Id
 
-- Text
+* Text
 
-- Likes
+* Likes
 
-- isRetweet
+* isRetweet
 
-- Parent
+* Parent
 
-    - Tweet. Represent the Tweet that the current twitted has replied to / retweeted. All fields of Tweet accessible.
+  - Tweet. Represent the Tweet that the current twitted has replied to / retweeted. All fields of Tweet accessible.
 
-- Author
+* Author
 
-    - User. Represent the User that posted / retweeted / replied the (/ to) current tweet. All fields of User
-      accessible.
+  - User. Represent the User that posted / retweeted / replied the (/ to) current tweet. All fields of User
+    accessible.
 
-- Replies
+* Replies
 
-    - List of Tweets. Represent all the tweets that are considered replied for the current tweet. For each we can access
-      every field of Tweet.
+  - List of Tweets. Represent all the tweets that are considered replied for the current tweet. For each we can access
+    every field of Tweet.
 
-- Retweets
-    - List of Tweets. Represent all the tweets that are considered retweets of the current tweet. For each we can access
-      every field of Tweet.
-- Metadata
+* Retweets
+  - List of Tweets. Represent all the tweets that are considered retweets of the current tweet. For each we can access
+    every field of Tweet.
+* Metadata
 
-    - TwitterMetadata. All fields of TwitterMetadata accessible. Contains following fields :
+  - TwitterMetadata. All fields of TwitterMetadata accessible. Contains following fields :
 
-        - tweet
+    - tweet
 
-            - Tweet. Represents the unique tweet that it is linked to. All fields of Tweet accessible.
+      - Tweet. Represents the unique tweet that it is linked to. All fields of Tweet accessible.
 
-        - tweetDate
+    - tweetDate
 
-            - Date : when the tweet has been sent.
+      - Date : when the tweet has been sent.
 
-        - location
+    - location
 
-            - Location : where the tweet has been sent from.
+      - Location : where the tweet has been sent from.
 
-        - sentFrom
+    - sentFrom
 
-            - iOS / Android
+      - iOS / Android
 
 </details>
 
@@ -103,31 +103,31 @@
 <details>
   <summary> <strong>Get User</strong> </summary>
 
-  ```
-  query{
-    user(id: 1){
+```
+query{
+  user(id: 1){
+    id
+    username
+    name
+    tweets {
+      id
+      text
+      likes
+      # the rest of the fields of Tweet can be added
+    }
+    followers {
       id
       username
-      name
-      tweets {
-        id
-        text
-        likes
-        # the rest of the fields of Tweet can be added
-      }
-      followers {
-        id
-        username
-        # the rest of the fields of User can be added
-      }
-      following {
-        id
-        username
-        # the rest of the fields of User can be added
-      }
+      # the rest of the fields of User can be added
+    }
+    following {
+      id
+      username
+      # the rest of the fields of User can be added
     }
   }
-  ```
+}
+```
 
 </details>
 
@@ -195,7 +195,7 @@
         id
         text
         author {
-          username 
+          username
           name
         }
       }
@@ -231,7 +231,7 @@
       }
     }
   }
-  
+
 ```
 
 - TweetMetadata example
@@ -264,76 +264,82 @@
 <details>
   <summary> <strong> Get the most liked [n] tweets that have been posted from a specific location [loc] </strong> </summary>
 
-  ```
-    query{
-    popularTweets(n: 2, loc : "Romania"){
-      id
-      likes
-      author {
-        name
-      }
-      metadata {
-        location
-      }
+```
+  query{
+  popularTweets(n: 2, loc : "Romania"){
+    id
+    likes
+    author {
+      name
+    }
+    metadata {
+      location
     }
   }
-  ```
+}
+```
 
-  ```
-    query{
-    popularTweets(n: 1, loc : "Romania"){
-      id
-      likes
-      author {
-        name
-      }
-      metadata {
-        location
-      }
+```
+  query{
+  popularTweets(n: 1, loc : "Romania"){
+    id
+    likes
+    author {
+      name
+    }
+    metadata {
+      location
     }
   }
-  ```
+}
+```
 
+</details>
+
+<details>
+  <summary> <strong> Get the [n] most recent tweets created by users the user with this [id] is following </strong> </summary>
 </details>
 
 ## Mutations
 
+### User
+
 <details>
   <summary> <strong>Create User</strong> </summary>
 
-  ```
-  mutation{
-    createUser(username : "newUser", name : "newUserName"){
-      id
-      username
-      name
-    }
+```
+mutation{
+  createUser(username : "newUser", name : "newUserName"){
+    id
+    username
+    name
   }
-  ```
+}
+```
 
 Returns:
 
-  ```
-    {
-    "data": {
-      "createUser": {
-        "id": 4,
-        "username": "newUser",
-        "name": "newUserName"
-      }
+```
+  {
+  "data": {
+    "createUser": {
+      "id": 4,
+      "username": "newUser",
+      "name": "newUserName"
     }
   }
-  
-  ```
+}
+
+```
 
 Check changes.
 
-   ```
-    query {
-      users {
-        id
-      }
-    }
+```
+ query {
+   users {
+     id
+   }
+ }
 
 ```
 
@@ -426,3 +432,28 @@ Returns:
 
 </details>
 
+<details>
+  <summary> <strong>Follow User</strong> </summary>
+</details>
+
+<details>
+  <summary> <strong>Login</strong> </summary>
+</details>
+
+### Tweet
+
+<details>
+  <summary> <strong>Create Tweet</strong> </summary>
+</details>
+
+<details>
+  <summary> <strong>Create Retweet</strong> </summary>
+</details>
+
+<details>
+  <summary> <strong>Create Reply</strong> </summary>
+</details>
+
+<details>
+  <summary> <strong>Like Tweet</strong> </summary>
+</details>
